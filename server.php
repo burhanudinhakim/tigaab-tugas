@@ -312,7 +312,7 @@ $server->wsdl->addComplexType(
 	function deleteBpjs($no_bpjs,$no_kk,$no_pegawai)
 	{
 		$libs = new Library();
-		$result = $libs->delete_bpjs($no_bpjs,$no_kk,$no_pegawai);
+		$result = $libs->delete_bpjs($no_bpjs,$no_pegawai);
 		if($result) return true;
 	}
 
