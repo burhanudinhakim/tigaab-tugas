@@ -600,8 +600,8 @@
             dataType: "json",
             type: "POST",
             data: {no_kk:no_kki},
-            success: function (result) {
-            	if(result.nama_kk!='')
+            success: function(result){
+            	if(result.no_kk!=0)
             	{
             		document.getElementById('set-kk').disabled=false;
             		var no_kk = $(document).closest('td').find('.no_bpjs').text();
@@ -614,7 +614,6 @@
             		$("#kabupaten_kkUpd").text(result.kabupaten);
             		$("#provinsi_kkUpd").text(result.provinsi);
             		$("#kodepos_kkUpd").text(result.kode_pos);
-					
 				}
             	else
 				{
@@ -628,20 +627,13 @@
             		$("#kodepos_kkUpd").text('');
 					document.getElementById('set-kk').disabled=true;
 				}
-            }
-		}).fail(function(){
 
-					$('#kk_notfound').fadeIn('slow');
-					$('.data-kk').fadeOut('slow');
-					$('#nama_kkUpd').text('');
-            		$('#alamat_kkUpd').text('');
-            		$("#kecamatan_kkUpd").text('');
-            		$("#kabupaten_kkUpd").text('');
-            		$("#provinsi_kkUpd").text('');
-            		$("#kodepos_kkUpd").text('');
-					document.getElementById('set-kk').disabled=true;
-
-		});
+            },
+            error: function(xhr, status, error) {
+				  var err = eval("(" + xhr.responseText + ")");
+				  alert(err.Message);
+				}
+        });
      }
 
 	function resetKKRegisterField()

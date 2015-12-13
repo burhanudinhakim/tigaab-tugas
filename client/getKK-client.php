@@ -1,6 +1,6 @@
 <?php
 	require_once('../nusoap/lib/nusoap.php');
-	$client= new nusoap_client('http://localhost/ta/server.php?wsdl',true);
+	$client= new nusoap_client('http://localhost/ta/server.php?wsdl',false);
 	$ret = $client->call('getKK',array(
 			'no_kk'=> $_POST['no_kk']
 		));

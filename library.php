@@ -235,7 +235,18 @@ class Library
 		
 		$KartuKeluarga  = $db->Execute("SELECT * FROM kartukk WHERE no_kk='$no_kk'");
 		$data = array();
-	 	while (!$KartuKeluarga->EOF) { 
+			$data['id'] = 0;
+            $data['no_kk'] = 0;
+            $data['nama_kk'] = "Not Found";
+            $data['alamat'] = "Not Found";
+            $data['rt'] = 0;
+           	$data['rw'] = 0;
+            $data['desa'] = "Not Found";
+            $data['kecamatan'] = "Not Found";
+            $data['kabupaten'] = "Not Found";
+            $data['provinsi'] = "Not Found";
+            $data['kode_pos'] = 0;
+	 	if (!$KartuKeluarga->EOF) { 
             $data['id'] = $KartuKeluarga->fields[0];
             $data['no_kk'] = $KartuKeluarga->fields[1];
             $data['nama_kk'] = $KartuKeluarga->fields[2];
@@ -247,7 +258,6 @@ class Library
             $data['kabupaten'] = $KartuKeluarga->fields[8];
             $data['provinsi'] = $KartuKeluarga->fields[9];
             $data['kode_pos'] = $KartuKeluarga->fields[10];
-        	$KartuKeluarga->MoveNext();
         }  
 
 		return $data;
