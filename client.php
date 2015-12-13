@@ -570,11 +570,9 @@
             cache: false,
             dataType: "json",
             type: "POST",
-            data: {no_kk:no_kki},
-            
+            data: {no_kk:no_kki}
 		}).done(function(result){
-
-            	if(result.nama_kk!=""||result.nama_kk!=null)
+            	if(result.nama_kk!="")
             	{         		
 	             	$("#alert-addKK").fadeIn('slow');
 	        		document.getElementById('add-kk').disabled=true;
