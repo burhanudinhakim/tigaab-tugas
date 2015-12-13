@@ -1,7 +1,7 @@
 
 <?php
 	require_once('../nusoap/lib/nusoap.php');
-	$client= new nusoap_client('http://localhost/ta/server.php?wsdl',true);
+	$client= new nusoap_client('http://localhost/tigaab/server.php?wsdl',true);
 	$data = $client->call('getIndexData',array());
 //	var_dump($data);
 //	echo " " . htmlspecialchars($client->response,ENT_QUOTES) . " ";

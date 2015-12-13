@@ -9,7 +9,7 @@ class Database
 		try
 		{
 			$this->db = &ADONewConnection('mysql');
-			$this->db->Connect('tigaab', 'root', '','tigaab');
+			$this->db->Connect('localhost', 'root', '','tigaab');
 		}
 		catch(Exception $e)
 		{
