@@ -532,7 +532,7 @@
             type: "POST",
             data: {no_kk:no_kki},
             success: function (result) {
-            	if(result!="")
+            	if(result.no_kk!=0)
             	{
     
             		$("#nama_kkReg").val(result.nama_kk);  
@@ -581,8 +581,7 @@
 		}).fail(function() {
 			    $("#alert-addKK").fadeOut('slow');
 	        	document.getElementById('add-kk').disabled=false;
-	    
-		});		
+		});
 	}
 
 	function getKKUpdate(no_kk)
