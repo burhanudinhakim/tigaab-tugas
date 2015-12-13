@@ -370,6 +370,7 @@
 	 	$('#success_set').hide();
 	 	$('#bpjs-baru').hide();
 	 	$('#alert-addKK').hide();
+	 	document.getElementById('add-kk').disabled=false;
 	 	getData();
  	   $(document).on('submit', '#register-form', function() {	    
 		    $('#loader-wrapper').show();
@@ -423,10 +424,8 @@
 	 	   	var kabupaten_kk = $('#keKabupaten').val();
 	 	   	var provinsi_kk = $('#keProvinsi').val();
 	 	   	var kode_pos_kk = $('#keKodePos').val();
-	 	   	alert(kode_pos_kk);
 	 	   		$.post("client/addKK-client.php", {no_kk:no_kki,nama_kk:nama_kki,alamat:alamat_kk,rt:rt_kk,rw:rw_kk,desa:desa_kk,kecamatan:kecamatan_kk,kabupaten:kabupaten_kk,provinsi:provinsi_kk,kode_pos:kode_pos_kk})
 			        .done(function(data) { 
-			        	alert(data);
 			        	$('#addKK').modal('hide');
 					});
  	   	return false;
@@ -572,15 +571,12 @@
             type: "POST",
             data: {no_kk:no_kki}
 		}).done(function(result){
-            	if(result.nama_kk!="")
+            	document.getElementById('add-kk').disabled=false;
+	        	$("#alert-addKK").fadeOut('slow');
+            	if(result.no_kk!=0)
             	{         		
 	             	$("#alert-addKK").fadeIn('slow');
 	        		document.getElementById('add-kk').disabled=true;
-	        	}
-	        	else
-	        	{
-	        		$("#alert-addKK").fadeOut('slow');
-	        		document.getElementById('add-kk').disabled=false;
 	        	}
 		}).fail(function() {
 			    $("#alert-addKK").fadeOut('slow');
